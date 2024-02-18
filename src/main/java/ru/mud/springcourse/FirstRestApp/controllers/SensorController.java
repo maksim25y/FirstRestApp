@@ -33,7 +33,7 @@ public class SensorController {
 
     @PostMapping("/registration")
     public ResponseEntity<HttpStatus> addSensor(@Valid @RequestBody SensorDTO sensorDTO, BindingResult bindingResult){
-        //sensorValidator.validate(sensorDTO,bindingResult);
+        sensorValidator.validate(sensorDTO,bindingResult);
         if(bindingResult.hasErrors()){
             StringBuilder errorMessage = new StringBuilder();
             List<FieldError> errors = bindingResult.getFieldErrors();
