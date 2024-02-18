@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.Objects;
 
 @Entity
 @Table(name = "measurement")
@@ -11,16 +14,18 @@ public class Measurement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotEmpty(message = "Value should not be empty")
+    //@NotEmpty(message = "Value should not be empty")
     @Min(value = -100,message = "Value must be in the range [-100,100] ")
-    @Max(value = -100,message = "Value must be in the range [-100,100] ")
+    @Max(value = 100,message = "Value must be in the range [-100,100] ")
     private double value;
-    @NotEmpty(message = "Raining should not be empty")
-    private boolean raining;
+    @NotNull(message = "Raining should not be empty")
+    private Boolean raining;
     @ManyToOne
+    @JoinColumn(name = "sensor",referencedColumnName = "name")
+    @NotNull
     private Sensor sensor;
 
-    public Measurement(int id, double value, boolean raining, Sensor sensor) {
+    public Measurement(int id, double value, Boolean raining, Sensor sensor) {
         this.id = id;
         this.value = value;
         this.raining = raining;
@@ -46,11 +51,11 @@ public class Measurement {
         this.value = value;
     }
 
-    public boolean isRaining() {
+    public Boolean isRaining() {
         return raining;
     }
 
-    public void setRaining(boolean raining) {
+    public void setRaining(Boolean raining) {
         this.raining = raining;
     }
 
@@ -60,5 +65,28 @@ public class Measurement {
 
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Measurement that = (Measurement) o;
+        return id == that.id && Double.compare(value, that.value) == 0 && Objects.equals(raining, that.raining);
+    }
+
+    @Override
+    public String toString() {
+        return "Measurement{" +
+                "id=" + id +
+                ", value=" + value +
+                ", raining=" + raining +
+                ", sensor=" + sensor +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, value, raining);
     }
 }
