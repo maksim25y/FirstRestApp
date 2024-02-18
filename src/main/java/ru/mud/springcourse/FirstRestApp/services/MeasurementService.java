@@ -9,6 +9,7 @@ import ru.mud.springcourse.FirstRestApp.models.Sensor;
 import ru.mud.springcourse.FirstRestApp.repositories.MeasurementRepository;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -33,5 +34,9 @@ public class MeasurementService {
 
     public List<Measurement> findAll() {
         return measurementRepository.findAll();
+    }
+
+    public int findAllWithRain() {
+        return measurementRepository.findAllByRaining(true).size();
     }
 }

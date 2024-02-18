@@ -33,6 +33,10 @@ public class MeasurementController {
     public List<MeasurementDTO> getAll(){
         return measurementService.findAll().stream().map(this::convertMToDTO).toList();
     }
+    @GetMapping("/rainyDaysCount")
+    public int getAllWithRain(){
+        return measurementService.findAllWithRain();
+    }
 
     @PostMapping("/add")
     public ResponseEntity<HttpStatus> addMeasurement(@Valid @RequestBody MeasurementDTO measurementDTO
