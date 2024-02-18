@@ -14,10 +14,10 @@ public class Measurement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    //@NotEmpty(message = "Value should not be empty")
+    @NotNull(message = "Value should not be empty")
     @Min(value = -100,message = "Value must be in the range [-100,100] ")
     @Max(value = 100,message = "Value must be in the range [-100,100] ")
-    private double value;
+    private Double value;
     @NotNull(message = "Raining should not be empty")
     private Boolean raining;
     @ManyToOne
@@ -25,14 +25,14 @@ public class Measurement {
     @NotNull
     private Sensor sensor;
 
-    public Measurement(int id, double value, Boolean raining, Sensor sensor) {
+    public Measurement(int id, Double value, Boolean raining, Sensor sensor) {
         this.id = id;
         this.value = value;
         this.raining = raining;
         this.sensor = sensor;
     }
 
-    public Measurement() {
+    public Measurement(){
     }
 
     public int getId() {
@@ -43,15 +43,15 @@ public class Measurement {
         this.id = id;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
-    public Boolean isRaining() {
+    public Boolean getRaining() {
         return raining;
     }
 
@@ -65,14 +65,6 @@ public class Measurement {
 
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Measurement that = (Measurement) o;
-        return id == that.id && Double.compare(value, that.value) == 0 && Objects.equals(raining, that.raining);
     }
 
     @Override

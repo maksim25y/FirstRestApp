@@ -4,20 +4,22 @@ import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.stereotype.Component;
 import ru.mud.springcourse.FirstRestApp.models.Sensor;
-
+@Component
 public class MeasurementDTO {
-    @NotEmpty(message = "Value should not be empty")
+    @NotNull(message = "Value should not be empty")
     @Min(value = -100,message = "Value must be in the range [-100,100] ")
-    @Max(value = -100,message = "Value must be in the range [-100,100] ")
-    private double value;
-    @NotEmpty(message = "Raining should not be empty")
-    private boolean raining;
-    //@ManyToOne
+    @Max(value = 100,message = "Value must be in the range [-100,100] ")
+    private Double value;
+    @NotNull(message = "Raining should not be empty")
+    private Boolean raining;
     @JsonProperty("sensor")
+    @NotNull
     private SensorDTO sensor;
 
-    public MeasurementDTO(double value, boolean raining, SensorDTO sensor) {
+    public MeasurementDTO(Double value, Boolean raining, SensorDTO sensor) {
         this.value = value;
         this.raining = raining;
         this.sensor = sensor;
@@ -26,27 +28,27 @@ public class MeasurementDTO {
     public MeasurementDTO() {
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
-    public boolean isRaining() {
+    public Boolean getRaining() {
         return raining;
     }
 
-    public void setRaining(boolean raining) {
+    public void setRaining(Boolean raining) {
         this.raining = raining;
     }
 
-    public SensorDTO getSensorDTO() {
+    public SensorDTO getSensor() {
         return sensor;
     }
 
-    public void setSensorDTO(SensorDTO sensor) {
+    public void setSensor(SensorDTO sensor) {
         this.sensor = sensor;
     }
 
