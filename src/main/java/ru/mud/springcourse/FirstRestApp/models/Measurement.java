@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -24,12 +25,15 @@ public class Measurement {
     @JoinColumn(name = "sensor",referencedColumnName = "name")
     @NotNull
     private Sensor sensor;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-    public Measurement(int id, Double value, Boolean raining, Sensor sensor) {
+    public Measurement(int id, Double value, Boolean raining, Sensor sensor, LocalDateTime createdAt) {
         this.id = id;
         this.value = value;
         this.raining = raining;
         this.sensor = sensor;
+        this.createdAt = createdAt;
     }
 
     public Measurement(){
@@ -65,6 +69,14 @@ public class Measurement {
 
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override

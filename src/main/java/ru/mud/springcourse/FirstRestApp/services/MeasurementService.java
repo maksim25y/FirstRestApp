@@ -7,6 +7,8 @@ import ru.mud.springcourse.FirstRestApp.models.Measurement;
 import ru.mud.springcourse.FirstRestApp.models.Sensor;
 import ru.mud.springcourse.FirstRestApp.repositories.MeasurementRepository;
 
+import java.time.LocalDateTime;
+
 @Service
 @Transactional(readOnly = true)
 public class MeasurementService {
@@ -23,6 +25,7 @@ public class MeasurementService {
         Sensor sensor = measurement.getSensor();
         Sensor sensorByName = sensorService.findByName(sensor.getName());
         measurement.setSensor(sensorByName);
+        measurement.setCreatedAt(LocalDateTime.now());
         measurementRepository.save(measurement);
     }
 }
