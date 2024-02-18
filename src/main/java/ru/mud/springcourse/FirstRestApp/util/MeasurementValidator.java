@@ -26,8 +26,10 @@ public class MeasurementValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         MeasurementDTO measurement = (MeasurementDTO) o;
-        if(sensorService.findByName(measurement.getSensor().getName())==null){
-            errors.rejectValue("sensor","","Name of sensor incorrect");
+        if(measurement.getSensor()!=null){
+            if(sensorService.findByName(measurement.getSensor().getName())==null){
+                errors.rejectValue("sensor","","Name of sensor incorrect");
+            }
         }
     }
 }

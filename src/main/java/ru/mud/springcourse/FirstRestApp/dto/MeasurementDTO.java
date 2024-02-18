@@ -16,7 +16,7 @@ public class MeasurementDTO {
     @NotNull(message = "Raining should not be empty")
     private Boolean raining;
     @JsonProperty("sensor")
-    @NotNull
+    @NotNull(message = "Sensor cannot be empty")
     private SensorDTO sensor;
 
     public MeasurementDTO(Double value, Boolean raining, SensorDTO sensor) {
