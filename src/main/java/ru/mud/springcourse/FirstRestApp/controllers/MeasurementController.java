@@ -29,6 +29,10 @@ public class MeasurementController {
         this.measurementService = measurementService;
         this.measurementValidator = measurementValidator;
     }
+    @GetMapping
+    public List<MeasurementDTO> getAll(){
+        return measurementService.findAll().stream().map(this::convertMToDTO).toList();
+    }
 
     @PostMapping("/add")
     public ResponseEntity<HttpStatus> addMeasurement(@Valid @RequestBody MeasurementDTO measurementDTO
@@ -59,5 +63,8 @@ public class MeasurementController {
     }
     private Sensor mapToSensor(SensorDTO sensorDTO){
         return mapper.map(sensorDTO,Sensor.class);
+    }
+    private MeasurementDTO convertMToDTO(Measurement measurement){
+        return mapper.map(measurement,MeasurementDTO.class);
     }
 }
