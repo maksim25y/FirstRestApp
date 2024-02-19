@@ -16,6 +16,7 @@
 </details>
 <details><summary>Установка</summary>
   Для того, чтобы проделать следующие шаги на Windows, установите Git Bash: https://gitforwindows.org/
+  
 
 1. Склонируйте репозиторий
 
