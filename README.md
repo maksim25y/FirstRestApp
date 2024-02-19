@@ -14,6 +14,16 @@
 ![image](https://github.com/maksim25y/FirstRestApp/assets/131711956/a4bdbe3e-2d16-4ab6-bbe8-83b62e97dfba)
 ![image](https://github.com/maksim25y/FirstRestApp/assets/131711956/a5e56f99-8d4c-4b75-b27f-9cab56fb5bfd)
 </details>
+<details><summary>Установка</summary>
+  Для того, чтобы проделать следующие шаги на Windows, установите [Git Bash](https://gitforwindows.org/)
+
+1. Склонируйте репозиторий
+
+```shell
+git clone https://github.com/F0RRZZ/artlebedev_test_task.git
+```
+</details>
+
 
 
 
