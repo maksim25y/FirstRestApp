@@ -1,5 +1,6 @@
 Учебный проект, который был выполнен мною при изучении Spring REST. Проект представляет собой API для приема данных от сенсора и последующей их обработки в базе данных.
 <details><summary>Условие задачи</summary>
+  
 ![image](https://github.com/maksim25y/FirstRestApp/assets/131711956/9feffed3-9f0b-4318-96f9-02f98532d998)
 ![image](https://github.com/maksim25y/FirstRestApp/assets/131711956/2543c067-89fd-4f8d-bd2f-83ac897923fc)
 ![image](https://github.com/maksim25y/FirstRestApp/assets/131711956/fe3250a5-5f4a-44fc-8f5d-13fe90951ea3)
