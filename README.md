@@ -15,7 +15,7 @@
 ![image](https://github.com/maksim25y/FirstRestApp/assets/131711956/a5e56f99-8d4c-4b75-b27f-9cab56fb5bfd)
 </details>
 <details><summary>Установка</summary>
-  Для того, чтобы проделать следующие шаги на Windows, установите [Git Bash][(https://gitforwindows.org/)]
+  Для того, чтобы проделать следующие шаги на Windows, установите Git Bash: https://gitforwindows.org/
 
 1. Склонируйте репозиторий
 
@@ -23,6 +23,8 @@
 git clone git@github.com:maksim25y/FirstRestApp.git
 ```
 </details>
+
+
 
 
 
