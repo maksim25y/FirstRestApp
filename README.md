@@ -20,7 +20,7 @@
 1. Склонируйте репозиторий
 
 ```shell
-git clone https://github.com/F0RRZZ/artlebedev_test_task.git
+git clone git@github.com:maksim25y/FirstRestApp.git
 ```
 </details>
 
